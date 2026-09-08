@@ -72,5 +72,6 @@ ORDER BY studentLastName ASC, studentFirstName ASC;
 db_cursor.execute(sort_data_query)
 
 sorted_students = db_cursor.fetchall()
-for student in sorted_students:
-    print(student)
+
+for s in sorted_students:
+    print(s)
