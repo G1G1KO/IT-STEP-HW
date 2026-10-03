@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.bookTitle }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4 text-center">
+            <h2 class="card-title text-primary">{{ book.bookTitle }}</h2>
+            <h5 class="card-subtitle mb-3 text-muted">ავტორი: {{ book.bookAuthor }}</h5>
+            <p class="card-text">გამოცემის წელი: <strong>{{ book.bookYear }}</strong></p>
+            <p class="text-muted"><small>წიგნის ID: #{{ book.bookId }}</small></p>
+            
+            <div class="d-flex justify-content-center gap-2 mt-3">
+                <a href="{{ url_for('update', book_id=book.bookId) }}" class="btn btn-warning">რედაქტირება</a>
+                <a href="{{ url_for('delete_book', book_id=book.bookId) }}" class="btn btn-danger" onclick="return confirm('ნამდვილად გსურთ წაშლა?');">წაშლა</a>
+                <a href="{{ url_for('books') }}" class="btn btn-secondary">უკან დაბრუნება</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
