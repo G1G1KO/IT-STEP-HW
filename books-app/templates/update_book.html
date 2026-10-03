@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}წიგნის რედაქტირება{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h3 class="mb-3 text-center">წიგნის რედაქტირება</h3>
+            <form action="{{ url_for('update', book_id=book.bookId) }}" method="POST">
+                <div class="mb-3">
+                    <label for="newTitle" class="form-label">ახალი სათაური</label>
+                    <input type="text" class="form-control" id="newTitle" name="newTitle" value="{{ book.bookTitle }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="newAuthor" class="form-label">ახალი ავტორი</label>
+                    <input type="text" class="form-control" id="newAuthor" name="newAuthor" value="{{ book.bookAuthor }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="newYear" class="form-label">ახალი გამოცემის წელი</label>
+                    <input type="number" class="form-control" id="newYear" name="newYear" value="{{ book.bookYear }}" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-warning">განახლება</button>
+                    <a href="{{ url_for('books') }}" class="btn btn-outline-secondary">გაუქმება</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
